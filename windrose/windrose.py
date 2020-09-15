@@ -70,7 +70,7 @@ class WindroseAxes(PolarAxes):
 
     name = "windrose"
 
-    def __init__(self, *args, theta_labels=DEFAULT_THETA_LABELS, **kwargs):
+    def __init__(self, *args, **kwargs):
         """
         See Axes base class for args and kwargs documentation
 
@@ -84,7 +84,7 @@ class WindroseAxes(PolarAxes):
         # when the instance is created
         # self.RESOLUTION = kwargs.pop('resolution', 100)
         self.rmax = kwargs.pop("rmax", None)
-        self.theta_labels = theta_labels
+        self.theta_labels = kwargs.pop("theta_labels", DEFAULT_THETA_LABELS)
 
         PolarAxes.__init__(self, *args, **kwargs)
         self.set_aspect("equal", adjustable="box", anchor="C")
